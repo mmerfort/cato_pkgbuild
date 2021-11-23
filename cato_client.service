@@ -1,0 +1,14 @@
+[Unit]
+Description=Cato VPN client
+After=network.target
+
+[Service]
+Type=simple
+User=root
+RuntimeDirectory=cato
+WorkingDirectory=/var/run/cato
+ExecStart=/usr/bin/cato_client --service /etc/cato/client.json
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
